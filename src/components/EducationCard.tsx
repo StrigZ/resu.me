@@ -6,7 +6,7 @@ type Props = {
   isCollapsed: boolean;
   onCollapse: () => void;
 };
-function EducationCard({ isCollapsed, onCollapse }: Props) {
+export default function EducationCard({ isCollapsed, onCollapse }: Props) {
   return (
     <Card
       title="Education"
@@ -30,4 +30,3 @@ function EducationCard({ isCollapsed, onCollapse }: Props) {
     </Card>
   );
 }
-export default EducationCard;
