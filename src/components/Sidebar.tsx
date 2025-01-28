@@ -15,7 +15,7 @@ export default function Sidebar({}: Props) {
     setVisibleCardName((prev) => (prev === cardName ? null : cardName));
 
   return (
-    <aside className="col-start-1 col-end-2 flex flex-col gap-4">
+    <aside className="col-span-2 flex flex-col gap-4 md:col-span-1">
       <PersonalDetailsCard />
       <EducationCard
         isCollapsed={visibleCardName !== "education"}
