@@ -33,7 +33,7 @@ const mockFields: {
 type Props = {};
 export default function CV({}: Props) {
   return (
-    <main className="col-span-2 bg-white">
+    <main className="col-span-2 h-fit bg-white">
       <CVHeader />
       <div className="space-y-8 p-12">
         {mockFields && mockFields.length > 0 && (
