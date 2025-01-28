@@ -8,7 +8,7 @@ import ExperienceCard from "./ExperienceCard";
 type CardName = "education" | "experience" | null;
 
 type Props = {};
-function Sidebar({}: Props) {
+export default function Sidebar({}: Props) {
   const [visibleCardName, setVisibleCardName] = useState<CardName>(null);
 
   const handleCardCollapse = (cardName: CardName) =>
@@ -28,4 +28,3 @@ function Sidebar({}: Props) {
     </aside>
   );
 }
-export default Sidebar;
