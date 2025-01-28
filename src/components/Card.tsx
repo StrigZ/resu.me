@@ -1,5 +1,4 @@
-"use client";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { GoChevronDown } from "react-icons/go";
 import { cn } from "~/utils/utils";
 
@@ -7,17 +6,18 @@ type Props = {
   children: ReactNode;
   title: string;
   titleIcon?: ReactNode;
-  collapsable?: boolean;
+  isCollapsable?: boolean;
   className?: string;
-  isCollapsed?: boolean;
-  onCollapse?: () => void;
-};
+} & (
+  | { isCollapsable?: false; isCollapsed?: never; onCollapse?: never }
+  | { isCollapsable: true; isCollapsed: boolean; onCollapse: () => void }
+);
 export default function Card({
   children,
   title,
   titleIcon,
   className,
-  collapsable = false,
+  isCollapsable = false,
   isCollapsed,
   onCollapse,
 }: Props) {
@@ -28,11 +28,11 @@ export default function Card({
         className,
       )}
     >
-      <div className="flex items-center gap-4">
+      <div className="flex items-center justify-between">
         <h2 className="flex items-center gap-2 text-2xl font-bold">
           <span className="text-3xl">{titleIcon}</span> {title}
         </h2>
-        {collapsable && (
+        {isCollapsable && (
           <button type="button" className="text-xl" onClick={onCollapse}>
             {
               <GoChevronDown
