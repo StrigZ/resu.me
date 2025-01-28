@@ -4,6 +4,7 @@ import { useState } from "react";
 import EducationCard from "./EducationCard";
 import PersonalDetailsCard from "./PersonalDetails";
 import ExperienceCard from "./ExperienceCard";
+import CVActionButtons from "./CVActionButtons";
 
 type CardName = "education" | "experience" | null;
 
@@ -16,6 +17,7 @@ export default function Sidebar({}: Props) {
 
   return (
     <aside className="col-span-2 flex flex-col gap-4 md:col-span-1">
+      <CVActionButtons handleLoadExample={() => {}} handleRestCV={() => {}} />
       <PersonalDetailsCard />
       <EducationCard
         isCollapsed={visibleCardName !== "education"}
