@@ -7,7 +7,7 @@ type Props = {
   isCollapsed: boolean;
   onCollapse: () => void;
 };
-function ExperienceCard({ isCollapsed, onCollapse }: Props) {
+export default function ExperienceCard({ isCollapsed, onCollapse }: Props) {
   return (
     <Card
       title="Experience"
@@ -40,4 +40,3 @@ function ExperienceCard({ isCollapsed, onCollapse }: Props) {
     </Card>
   );
 }
-export default ExperienceCard;
