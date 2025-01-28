@@ -21,7 +21,7 @@ function EducationCard({ isCollapsed, onCollapse }: Props) {
         placeholder="Academy of the Sacred Heart"
       />
       <Input labelText="Degree" type="text" placeholder="PhD" />
-      <Input labelText="End Date" type="date" placeholder="1234567890" />
+      <Input labelText="End Date" type="date" />
       <Input
         labelText="Location"
         type="text"
