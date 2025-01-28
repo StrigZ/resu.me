@@ -14,7 +14,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body className="grid min-h-screen grid-cols-2 gap-8 bg-slate-300 p-4 md:grid-cols-3">
+      <body className="container mx-auto grid min-h-screen grid-cols-2 gap-8 bg-slate-300 p-4 md:grid-cols-3">
         {children}
       </body>
     </html>
