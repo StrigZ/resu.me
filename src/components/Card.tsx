@@ -22,30 +22,26 @@ export default function Card({
   onCollapse,
 }: Props) {
   return (
-    <div
-      className={cn(
-        "space-y-2 rounded-md bg-white p-6 text-black shadow-md",
-        className,
-      )}
-    >
-      <div className="flex items-center justify-between">
+    <div className={cn("rounded-md bg-white text-black shadow-md", className)}>
+      <button
+        type="button"
+        className="flex w-full items-center justify-between p-6 text-xl"
+        onClick={onCollapse}
+        disabled={!isCollapsable}
+      >
         <h2 className="flex items-center gap-2 text-2xl font-bold">
           <span className="text-3xl">{titleIcon}</span> {title}
         </h2>
         {isCollapsable && (
-          <button type="button" className="text-xl" onClick={onCollapse}>
-            {
-              <GoChevronDown
-                style={{
-                  transition: "0.3s ease transform",
-                  transform: isCollapsed ? "rotateZ(180deg)" : "",
-                }}
-              />
-            }
-          </button>
+          <GoChevronDown
+            style={{
+              transition: "0.3s ease transform",
+              transform: isCollapsed ? "rotateZ(180deg)" : "",
+            }}
+          />
         )}
-      </div>
-      {!isCollapsed && children}
+      </button>
+      {!isCollapsed && <div className="space-y-4 p-6 pt-0">{children}</div>}
     </div>
   );
 }
