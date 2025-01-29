@@ -10,17 +10,27 @@ export type ThemeColorsProperties =
   | "body-bg"
   | "body-text"
   | "separators-bg";
-export type LayoutType = "top" | "left" | "right";
 export type ThemeColors = Record<ThemeColorsProperties, string>;
 
-export type ThemeType = {
-  layout: LayoutType;
+export type ThemeLayout = "top" | "left" | "right";
+
+export type ThemeFontsProperties = "headings" | "text";
+export const ThemeFontFamiliesArray = [
+  "sans-serif",
+  "serif",
+  "monospace",
+] as const;
+export type ThemeFontFamilies = (typeof ThemeFontFamiliesArray)[number];
+export type ThemeFonts = Record<ThemeFontsProperties, ThemeFontFamilies>;
+
+export type Theme = {
+  layout: ThemeLayout;
   colors: ThemeColors;
-  font: string;
+  fonts: ThemeFonts;
 };
 
 export default function HomePage() {
-  const [theme, setTheme] = useState<ThemeType>({
+  const [theme, setTheme] = useState<Theme>({
     layout: "top",
     colors: {
       "header-bg": "#312e81",
@@ -29,7 +39,10 @@ export default function HomePage() {
       "body-text": "#000",
       "separators-bg": "#f3f4f6",
     },
-    font: "",
+    fonts: {
+      headings: "sans-serif",
+      text: "sans-serif",
+    },
   });
 
   return (
@@ -37,7 +50,7 @@ export default function HomePage() {
       <Sidebar
         setTheme={setTheme}
         activeColors={theme.colors}
-        activeFont={theme.font}
+        activeFonts={theme.fonts}
         activeLayout={theme.layout}
       />
       <CV theme={theme} />

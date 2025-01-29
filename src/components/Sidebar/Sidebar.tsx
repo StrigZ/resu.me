@@ -6,21 +6,21 @@ import CVContentEditor from "./CVContentEditor/CVContentEditor";
 import CVThemeEditor from "./CVThemeEditor/CVThemeEditor";
 import CVActionButtons from "./CVActionButtons";
 import EditorTabs from "./EditorTabs";
-import { LayoutType, ThemeColors, ThemeType } from "~/app/page";
+import { ThemeLayout, ThemeColors, Theme, ThemeFonts } from "~/app/page";
 
 export type CardName = "education" | "experience" | null;
 export type EditorTabsType = "content" | "customize";
 
 type Props = {
-  activeLayout: LayoutType;
+  activeLayout: ThemeLayout;
   activeColors: ThemeColors;
-  activeFont: string;
-  setTheme: Dispatch<SetStateAction<ThemeType>>;
+  activeFonts: ThemeFonts;
+  setTheme: Dispatch<SetStateAction<Theme>>;
 };
 export default function Sidebar({
   setTheme,
   activeColors,
-  activeFont,
+  activeFonts,
   activeLayout,
 }: Props) {
   const [activeTab, setActiveTab] = useState<EditorTabsType>("customize");
@@ -37,7 +37,7 @@ export default function Sidebar({
           setTheme={setTheme}
           activeLayout={activeLayout}
           activeColors={activeColors}
-          activeFont={activeFont}
+          activeFonts={activeFonts}
         />
       )}
     </aside>
