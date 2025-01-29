@@ -31,7 +31,7 @@ export default function ThemeColorPicker({
         {colorButtons.map(({ color, displayText, property }) => (
           <li key={`${property}-color-picker`}>
             <label
-              className="flex cursor-pointer items-center justify-between gap-2"
+              className="flex cursor-pointer items-center justify-between gap-2 text-lg"
               htmlFor={`${property}-color-picker`}
             >
               {displayText}
