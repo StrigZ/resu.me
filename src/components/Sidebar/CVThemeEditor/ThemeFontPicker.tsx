@@ -45,6 +45,7 @@ export default function ThemeFontPicker({
               <div className="flex gap-2">
                 {ThemeFontFamiliesArray.map((fontFamily) => (
                   <button
+                    key={fontFamily}
                     className={cn(
                       "flex flex-1 flex-col rounded-md border-2 p-2",
                       {
