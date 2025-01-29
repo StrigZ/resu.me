@@ -3,7 +3,7 @@ import { cn } from "~/utils/utils";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   labelText: string;
-  classNames: string;
+  classNames?: string;
 }
 export default function Input({ labelText, classNames, ...inputProps }: Props) {
   return (
