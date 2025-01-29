@@ -36,7 +36,7 @@ export default function ThemeColorPicker({
             >
               {displayText}
               <span
-                className="block h-10 w-10 rounded-full border-2 border-gray-400 shadow-lg"
+                className="block h-10 w-10 shrink-0 rounded-full border-2 border-gray-400 shadow-lg"
                 style={{ backgroundColor: color }}
               />
             </label>
