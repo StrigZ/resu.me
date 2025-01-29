@@ -22,19 +22,11 @@ export default function Card({
   onCollapse,
 }: Props) {
   return (
-    <div
-      className={cn(
-        "rounded-md bg-white text-black shadow-md",
-        {
-          "space-y-2 p-6": !className,
-        },
-        className,
-      )}
-    >
+    <div className={cn("rounded-md bg-white text-black shadow-md", className)}>
       {title && (
         <button
           type="button"
-          className="flex w-full items-center justify-between text-xl"
+          className="flex w-full items-center justify-between p-6 text-xl"
           onClick={onCollapse}
           disabled={!isCollapsable}
         >

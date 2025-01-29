@@ -27,7 +27,7 @@ export default function ThemeColorPicker({
 
   return (
     <Card title="Colors">
-      <ul className="space-y-2">
+      <ul className="space-y-2 p-4 pt-0">
         {colorButtons.map(({ color, displayText, property }) => (
           <li key={`${property}-color-picker`}>
             <label

@@ -15,18 +15,20 @@ export default function EducationCard({ isCollapsed, onCollapse }: Props) {
       isCollapsed={isCollapsed}
       onCollapse={onCollapse}
     >
-      <Input
-        labelText="School"
-        type="text"
-        placeholder="Academy of the Sacred Heart"
-      />
-      <Input labelText="Degree" type="text" placeholder="PhD" />
-      <Input labelText="End Date" type="date" />
-      <Input
-        labelText="Location"
-        type="text"
-        placeholder="351 Elizabeth Avenue, Louisiana"
-      />
+      <div className="space-y-2 p-6 pt-0">
+        <Input
+          labelText="School"
+          type="text"
+          placeholder="Academy of the Sacred Heart"
+        />
+        <Input labelText="Degree" type="text" placeholder="PhD" />
+        <Input labelText="End Date" type="date" />
+        <Input
+          labelText="Location"
+          type="text"
+          placeholder="351 Elizabeth Avenue, Louisiana"
+        />
+      </div>
     </Card>
   );
 }

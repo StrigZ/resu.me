@@ -34,7 +34,7 @@ export default function ThemeFontPicker({
 
   return (
     <Card title="Fonts">
-      <ul className="space-y-4">
+      <ul className="space-y-4 p-4 pt-0">
         {fontButtons.map(
           ({ fontFamily: activeFontFamily, displayText, property }) => (
             <li

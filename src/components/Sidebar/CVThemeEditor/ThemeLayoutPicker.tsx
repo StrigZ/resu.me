@@ -33,8 +33,8 @@ export default function ThemeLayoutPicker({
   console.log(activeLayout);
 
   return (
-    <Card className="space-y-4 p-4" title="Layout">
-      <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
+    <Card title="Layout">
+      <div className="flex flex-wrap justify-center gap-4 p-4 pt-0 lg:justify-start">
         {layoutButtons.map(({ name, spanStyles }) => (
           <button
             key={name}
