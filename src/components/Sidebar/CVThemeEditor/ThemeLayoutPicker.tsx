@@ -26,7 +26,7 @@ type Props = {
   activeLayout: LayoutType;
   handleLayoutChange: (layoutType: LayoutType) => void;
 };
-export default function LayoutButtons({
+export default function ThemeLayoutPicker({
   activeLayout,
   handleLayoutChange,
 }: Props) {

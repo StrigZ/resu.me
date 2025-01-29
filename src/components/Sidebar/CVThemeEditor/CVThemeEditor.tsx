@@ -5,7 +5,7 @@ import {
   ThemeType,
 } from "~/app/page";
 import Card from "../../Card";
-import LayoutButtons from "./LayoutButtons";
+import ThemeLayoutPicker from "./ThemeLayoutPicker";
 import { Dispatch, SetStateAction } from "react";
 import ThemeColorPicker from "./ThemeColorPicker";
 
@@ -33,7 +33,7 @@ export default function CVThemeEditor({
 
   return (
     <>
-      <LayoutButtons
+      <ThemeLayoutPicker
         activeLayout={activeLayout}
         handleLayoutChange={handleLayoutChange}
       />
