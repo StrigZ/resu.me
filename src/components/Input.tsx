@@ -1,11 +1,13 @@
 import { InputHTMLAttributes } from "react";
+import { cn } from "~/utils/utils";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   labelText: string;
+  classNames: string;
 }
-export default function Input({ labelText, ...inputProps }: Props) {
+export default function Input({ labelText, classNames, ...inputProps }: Props) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className={cn("flex flex-col gap-1", classNames)}>
       <label className="text-lg font-semibold" htmlFor={inputProps.id}>
         {labelText}
       </label>
