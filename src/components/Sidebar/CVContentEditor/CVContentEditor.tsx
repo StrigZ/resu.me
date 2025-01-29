@@ -1,16 +1,16 @@
+"use client";
+
 import EducationCard from "./EducationCard";
 import PersonalDetailsCard from "./PersonalDetails";
 import ExperienceCard from "./ExperienceCard";
-import { CardName } from "./Sidebar";
+import { CardName } from "../Sidebar";
+import { useState } from "react";
 
-type Props = {
-  visibleCardName: CardName;
-  handleCardCollapse: (cardName: CardName) => void;
-};
-export default function CVContentEditor({
-  visibleCardName,
-  handleCardCollapse,
-}: Props) {
+type Props = {};
+export default function CVContentEditor({}: Props) {
+  const [visibleCardName, setVisibleCardName] = useState<CardName>(null);
+  const handleCardCollapse = (cardName: CardName) =>
+    setVisibleCardName((prev) => (prev === cardName ? null : cardName));
   return (
     <>
       <PersonalDetailsCard />

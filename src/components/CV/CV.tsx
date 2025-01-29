@@ -1,5 +1,6 @@
 import CVSection from "./CVSection";
 import CVHeader from "./CVHeader";
+import { ThemeType } from "~/app/page";
 
 const mockFields: {
   id: string;
@@ -30,8 +31,8 @@ const mockFields: {
   },
 ];
 
-type Props = {};
-export default function CV({}: Props) {
+type Props = { theme: ThemeType };
+export default function CV({ theme }: Props) {
   return (
     <main className="col-span-2 h-fit bg-white shadow-md">
       <CVHeader />

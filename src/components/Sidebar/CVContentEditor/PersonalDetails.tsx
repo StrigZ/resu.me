@@ -1,5 +1,5 @@
-import Card from "./Card";
-import Input from "./Input";
+import Card from "../../Card";
+import Input from "../../Input";
 
 type Props = {};
 export default function PersonalDetailsCard({}: Props) {

@@ -1,6 +1,6 @@
 import { GiGraduateCap } from "react-icons/gi";
-import Card from "./Card";
-import Input from "./Input";
+import Card from "../../Card";
+import Input from "../../Input";
 
 type Props = {
   isCollapsed: boolean;

@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "../Card";
 import { cn } from "~/utils/utils";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { FaPaintbrush } from "react-icons/fa6";

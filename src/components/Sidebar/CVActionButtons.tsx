@@ -1,5 +1,5 @@
 import { FaTrashCan } from "react-icons/fa6";
-import Card from "./Card";
+import Card from "../Card";
 import { cn } from "~/utils/utils";
 
 const BUTTON_STYLES =
