@@ -1,19 +1,33 @@
-import { LayoutType, ThemeType } from "~/app/page";
+import {
+  LayoutType,
+  ThemeColorsProperties,
+  ThemeColors,
+  ThemeType,
+} from "~/app/page";
 import Card from "../../Card";
 import LayoutButtons from "./LayoutButtons";
 import { Dispatch, SetStateAction } from "react";
+import ThemeColorPicker from "./ThemeColorPicker";
 
 type Props = {
   activeLayout: LayoutType;
-  activeColor: string;
+  activeColors: ThemeColors;
   activeFont: string;
   setTheme: Dispatch<SetStateAction<ThemeType>>;
 };
-export default function CVThemeEditor({ activeLayout, setTheme }: Props) {
+export default function CVThemeEditor({
+  activeLayout,
+  setTheme,
+  activeColors,
+  activeFont,
+}: Props) {
   const handleLayoutChange = (layout: LayoutType) =>
     setTheme((theme) => ({ ...theme, layout }));
-  const handleAccentColorChange = (accentColor: string) =>
-    setTheme((theme) => ({ ...theme, accentColor }));
+  const handleColorChange = (property: ThemeColorsProperties, color: string) =>
+    setTheme((theme) => ({
+      ...theme,
+      colors: { ...theme.colors, [property]: color },
+    }));
   const handleFontChange = (font: string) =>
     setTheme((theme) => ({ ...theme, font }));
 
@@ -23,7 +37,10 @@ export default function CVThemeEditor({ activeLayout, setTheme }: Props) {
         activeLayout={activeLayout}
         handleLayoutChange={handleLayoutChange}
       />
-      <Card title="Color">Colors</Card>
+      <ThemeColorPicker
+        activeColors={activeColors}
+        handleColorChange={handleColorChange}
+      />
       <Card title="Fonts">Fonts</Card>
     </>
   );

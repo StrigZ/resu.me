@@ -4,18 +4,31 @@ import { useState } from "react";
 import CV from "~/components/CV/CV";
 import Sidebar from "~/components/Sidebar/Sidebar";
 
+export type ThemeColorsProperties =
+  | "header-bg"
+  | "header-text"
+  | "body-bg"
+  | "body-text"
+  | "separators-bg";
 export type LayoutType = "top" | "left" | "right";
+export type ThemeColors = Record<ThemeColorsProperties, string>;
 
 export type ThemeType = {
   layout: LayoutType;
-  accentColor: string;
+  colors: ThemeColors;
   font: string;
 };
 
 export default function HomePage() {
   const [theme, setTheme] = useState<ThemeType>({
     layout: "top",
-    accentColor: "#312e81",
+    colors: {
+      "header-bg": "#312e81",
+      "header-text": "#fff",
+      "body-bg": "#fff",
+      "body-text": "#000",
+      "separators-bg": "#f3f4f6",
+    },
     font: "",
   });
 
@@ -23,7 +36,7 @@ export default function HomePage() {
     <>
       <Sidebar
         setTheme={setTheme}
-        activeAccentColor={theme.accentColor}
+        activeColors={theme.colors}
         activeFont={theme.font}
         activeLayout={theme.layout}
       />
