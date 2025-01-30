@@ -3,11 +3,11 @@ import { cn } from "~/utils/utils";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   labelText: string;
-  classNames?: string;
+  className?: string;
 }
-export default function Input({ labelText, classNames, ...inputProps }: Props) {
+export default function Input({ labelText, className, ...inputProps }: Props) {
   return (
-    <div className={cn("flex flex-col gap-1", classNames)}>
+    <div className={cn("flex flex-col gap-1", className)}>
       <label className="text-lg font-semibold" htmlFor={inputProps.id}>
         {labelText}
       </label>
