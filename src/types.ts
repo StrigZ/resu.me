@@ -8,11 +8,11 @@ export type Theme = {
 
 export type EducationOrExperience = {
   id: string;
-  location: string;
-  startDate: Date;
-  endDate: Date | null;
-  name: string;
-  degreeOrRole: string;
+  location?: string;
+  startDate?: Date;
+  endDate?: Date | null;
+  name?: string;
+  degreeOrRole?: string;
   description?: string;
 };
 
@@ -21,8 +21,8 @@ export type CV = {
   email?: string;
   phone?: string;
   location?: string;
-  education?: EducationOrExperience[];
-  experience?: EducationOrExperience[];
+  education: EducationOrExperience[];
+  experience: EducationOrExperience[];
 };
 
 export type ThemeColorsProperties =
