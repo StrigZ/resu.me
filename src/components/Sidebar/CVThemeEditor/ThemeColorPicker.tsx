@@ -1,5 +1,6 @@
-import { ThemeColorsProperties, ThemeColors } from "~/app/page";
 import Card from "~/components/Card";
+import { ThemeColorsProperties } from "~/types";
+import { useThemeContext } from "~/context/ThemeContextProvider";
 
 const PropertyDisplayText: Record<ThemeColorsProperties, string> = {
   "header-bg": "Header Background",
@@ -9,21 +10,18 @@ const PropertyDisplayText: Record<ThemeColorsProperties, string> = {
   "separators-bg": "Separators Background",
 };
 
-type Props = {
-  activeColors: ThemeColors;
-  handleColorChange: (property: ThemeColorsProperties, color: string) => void;
-};
-export default function ThemeColorPicker({
-  activeColors,
-  handleColorChange,
-}: Props) {
-  const colorButtons = Object.entries(activeColors).map(
-    ([property, color]) => ({
-      property,
-      color,
-      displayText: PropertyDisplayText[property as ThemeColorsProperties],
-    }),
-  );
+type Props = {};
+export default function ThemeColorPicker({}: Props) {
+  const {
+    theme: { colors },
+    handleColorChange,
+  } = useThemeContext();
+
+  const colorButtons = Object.entries(colors).map(([property, color]) => ({
+    property,
+    color,
+    displayText: PropertyDisplayText[property as ThemeColorsProperties],
+  }));
 
   return (
     <Card title="Colors">
@@ -37,7 +35,7 @@ export default function ThemeColorPicker({
               {displayText}
               <span
                 className="block h-10 w-10 shrink-0 rounded-full border-2 border-gray-400 shadow-lg"
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: color as string }}
               />
             </label>
             <input

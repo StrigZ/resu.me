@@ -11,6 +11,7 @@ export default function CVContentEditor({}: Props) {
   const [visibleCardName, setVisibleCardName] = useState<CardName>(null);
   const handleCardCollapse = (cardName: CardName) =>
     setVisibleCardName((prev) => (prev === cardName ? null : cardName));
+
   return (
     <>
       <PersonalDetailsCard />

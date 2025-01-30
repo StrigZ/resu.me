@@ -1,6 +1,7 @@
 import { cn } from "~/utils/utils";
 import Card from "../../Card";
-import { ThemeLayout } from "~/app/page";
+import { ThemeLayout } from "~/types";
+import { useThemeContext } from "~/context/ThemeContextProvider";
 
 type LayoutButton = {
   spanStyles: string;
@@ -22,15 +23,12 @@ const layoutButtons: LayoutButton[] = [
   },
 ];
 
-type Props = {
-  activeLayout: ThemeLayout;
-  handleLayoutChange: (ThemeLayout: ThemeLayout) => void;
-};
-export default function ThemeLayoutPicker({
-  activeLayout,
-  handleLayoutChange,
-}: Props) {
-  console.log(activeLayout);
+type Props = {};
+export default function ThemeLayoutPicker({}: Props) {
+  const {
+    theme: { layout },
+    handleLayoutChange,
+  } = useThemeContext();
 
   return (
     <Card title="Layout">
@@ -41,7 +39,7 @@ export default function ThemeLayoutPicker({
             className={cn(
               "flex flex-col items-center p-2 transition-transform active:scale-95 md:w-full lg:w-fit",
               {
-                "rounded-md bg-gray-200": activeLayout === name,
+                "rounded-md bg-gray-200": layout === name,
               },
             )}
             onClick={() => handleLayoutChange(name)}

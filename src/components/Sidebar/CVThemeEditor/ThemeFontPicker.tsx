@@ -1,10 +1,10 @@
-import {
-  ThemeFontFamilies,
-  ThemeFontFamiliesArray,
-  ThemeFonts,
-  ThemeFontsProperties,
-} from "~/app/page";
 import Card from "~/components/Card";
+
+import { ThemeFontFamilies, ThemeFontsProperties } from "~/types";
+import {
+  ThemeFontFamiliesArray,
+  useThemeContext,
+} from "~/context/ThemeContextProvider";
 import { cn } from "~/utils/utils";
 
 const FontFamilyDisplayText: Record<ThemeFontFamilies, string> = {
@@ -13,24 +13,18 @@ const FontFamilyDisplayText: Record<ThemeFontFamilies, string> = {
   serif: "serif",
 };
 
-type Props = {
-  activeFonts: ThemeFonts;
-  handleFontChange: (
-    property: ThemeFontsProperties,
-    fontFamily: ThemeFontFamilies,
-  ) => void;
-};
-export default function ThemeFontPicker({
-  activeFonts,
-  handleFontChange,
-}: Props) {
-  const fontButtons = Object.entries(activeFonts).map(
-    ([property, fontFamily]) => ({
-      property,
-      fontFamily,
-      displayText: property[0]?.toUpperCase() + property.slice(1),
-    }),
-  );
+type Props = {};
+export default function ThemeFontPicker({}: Props) {
+  const {
+    theme: { fonts },
+    handleFontChange,
+  } = useThemeContext();
+
+  const fontButtons = Object.entries(fonts).map(([property, fontFamily]) => ({
+    property,
+    fontFamily,
+    displayText: property[0]?.toUpperCase() + property.slice(1),
+  }));
 
   return (
     <Card title="Fonts">
