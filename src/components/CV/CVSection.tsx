@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import { useThemeContext } from "~/context/ThemeContextProvider";
 import { Qualification } from "~/types";
 
 type Props = {
@@ -6,9 +7,19 @@ type Props = {
   fields: Qualification[];
 };
 export default function CVSection({ title, fields }: Props) {
+  const {
+    theme: { colors, fonts },
+  } = useThemeContext();
+
   return (
-    <section className="space-y-4">
-      <h2 className="bg-gray-100 py-1 text-center text-2xl font-extrabold">
+    <section className="space-y-4" style={{ fontFamily: fonts["text"] }}>
+      <h2
+        className="py-1 text-center text-2xl font-extrabold"
+        style={{
+          backgroundColor: colors["separators-bg"],
+          fontFamily: fonts["headings"],
+        }}
+      >
         {title}
       </h2>
       <ul className="flex flex-col gap-8">

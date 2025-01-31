@@ -7,7 +7,7 @@ import { useThemeContext } from "~/context/ThemeContextProvider";
 type Props = {};
 export default function CVHeader({}: Props) {
   const {
-    theme: { colors },
+    theme: { colors, fonts },
   } = useThemeContext();
 
   const {
@@ -17,9 +17,18 @@ export default function CVHeader({}: Props) {
   return (
     <header
       className="space-y-4 p-8 text-white"
-      style={{ backgroundColor: colors["header-bg"] }}
+      style={{
+        backgroundColor: colors["header-bg"],
+        color: colors["header-text"],
+        fontFamily: fonts["text"],
+      }}
     >
-      <h1 className="text-center text-4xl">{fullName}</h1>
+      <h1
+        className="text-center text-4xl"
+        style={{ fontFamily: fonts["headings"] }}
+      >
+        {fullName}
+      </h1>
       <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-6 text-lg">
         {email && (
           <li className="flex items-center gap-2">

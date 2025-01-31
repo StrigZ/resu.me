@@ -16,6 +16,13 @@ export const ThemeFontFamiliesArray = [
   "monospace",
 ] as const;
 
+export const ThemeLayoutStyles: Record<ThemeLayout, string> = {
+  top: "",
+  left: "grid grid-cols-[min-content,1fr] [&>header]:col-start-1 ",
+  right:
+    "grid grid-cols-[1fr,min-content] [&>header]:col-start-2 [&>header]:row-span-2",
+};
+
 type ThemeContext = {
   theme: Theme;
   handleLayoutChange: (value: ThemeLayout) => void;
