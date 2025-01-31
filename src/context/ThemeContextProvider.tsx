@@ -31,6 +31,7 @@ type ThemeContext = {
     property: ThemeFontsProperties,
     value: ThemeFontFamilies,
   ) => void;
+  resetTheme: (type: keyof Theme | "all") => void;
 };
 
 const ThemeContext = createContext<ThemeContext>({
@@ -38,6 +39,7 @@ const ThemeContext = createContext<ThemeContext>({
   handleFontChange() {},
   handleColorChange() {},
   handleLayoutChange() {},
+  resetTheme(type) {},
 });
 
 export const useThemeContext = () => useContext(ThemeContext);
@@ -49,27 +51,39 @@ export default function ThemeContextProvider({
 }) {
   const [theme, setTheme] = useState<Theme>(defaultTheme);
 
-  const handleLayoutChange = (value: ThemeLayout) =>
+  const handleLayoutChange: ThemeContext["handleLayoutChange"] = (value) =>
     setTheme((prev) => ({ ...prev, layout: value }));
-  const handleColorChange = (property: ThemeColorsProperties, value: string) =>
+  const handleColorChange: ThemeContext["handleColorChange"] = (
+    property,
+    value,
+  ) =>
     setTheme((prev) => ({
       ...prev,
       colors: { ...prev.colors, [property]: value },
     }));
-  const handleFontChange = (
-    property: ThemeFontsProperties,
-    value: ThemeFontFamilies,
+  const handleFontChange: ThemeContext["handleFontChange"] = (
+    property,
+    value,
   ) =>
     setTheme((prev) => ({
       ...prev,
       fonts: { ...prev.fonts, [property]: value },
     }));
 
+  const resetTheme: ThemeContext["resetTheme"] = (type) =>
+    setTheme((prev) => {
+      if (type === "all") {
+        return defaultTheme;
+      }
+      return { ...prev, [type]: defaultTheme[type] };
+    });
+
   const value: ThemeContext = {
     theme,
     handleColorChange,
     handleFontChange,
     handleLayoutChange,
+    resetTheme,
   };
 
   return (

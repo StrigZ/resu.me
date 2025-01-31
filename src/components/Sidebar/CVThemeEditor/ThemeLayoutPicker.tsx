@@ -2,6 +2,7 @@ import { cn } from "~/utils/utils";
 import Card from "../../Card";
 import { ThemeLayout } from "~/types";
 import { useThemeContext } from "~/context/ThemeContextProvider";
+import ThemeResetButton from "./ThemeResetButton";
 
 type LayoutButton = {
   spanStyles: string;
@@ -28,6 +29,7 @@ export default function ThemeLayoutPicker({}: Props) {
   const {
     theme: { layout },
     handleLayoutChange,
+    resetTheme,
   } = useThemeContext();
 
   return (
@@ -54,6 +56,7 @@ export default function ThemeLayoutPicker({}: Props) {
           </button>
         ))}
       </div>
+      <ThemeResetButton handleThemeReset={() => resetTheme("layout")} />
     </Card>
   );
 }

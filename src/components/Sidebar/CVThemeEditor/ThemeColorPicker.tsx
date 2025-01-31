@@ -1,6 +1,7 @@
 import Card from "~/components/Card";
 import { ThemeColorsProperties } from "~/types";
 import { useThemeContext } from "~/context/ThemeContextProvider";
+import ThemeResetButton from "./ThemeResetButton";
 
 const PropertyDisplayText: Record<ThemeColorsProperties, string> = {
   "header-bg": "Header Background",
@@ -15,6 +16,7 @@ export default function ThemeColorPicker({}: Props) {
   const {
     theme: { colors },
     handleColorChange,
+    resetTheme,
   } = useThemeContext();
 
   const colorButtons = Object.entries(colors).map(([property, color]) => ({
@@ -52,6 +54,7 @@ export default function ThemeColorPicker({}: Props) {
           </li>
         ))}
       </ul>
+      <ThemeResetButton handleThemeReset={() => resetTheme("colors")} />
     </Card>
   );
 }

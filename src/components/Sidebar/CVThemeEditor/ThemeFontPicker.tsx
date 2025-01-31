@@ -6,6 +6,7 @@ import {
   useThemeContext,
 } from "~/context/ThemeContextProvider";
 import { cn } from "~/utils/utils";
+import ThemeResetButton from "./ThemeResetButton";
 
 const FontFamilyDisplayText: Record<ThemeFontFamilies, string> = {
   "sans-serif": "sans",
@@ -18,6 +19,7 @@ export default function ThemeFontPicker({}: Props) {
   const {
     theme: { fonts },
     handleFontChange,
+    resetTheme,
   } = useThemeContext();
 
   const fontButtons = Object.entries(fonts).map(([property, fontFamily]) => ({
@@ -69,6 +71,7 @@ export default function ThemeFontPicker({}: Props) {
           ),
         )}
       </ul>
+      <ThemeResetButton handleThemeReset={() => resetTheme("fonts")} />
     </Card>
   );
 }
