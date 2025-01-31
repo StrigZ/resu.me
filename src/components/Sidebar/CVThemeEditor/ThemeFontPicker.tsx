@@ -17,7 +17,7 @@ const FontFamilyDisplayText: Record<ThemeFontFamilies, string> = {
 type Props = {};
 export default function ThemeFontPicker({}: Props) {
   const {
-    theme: { fonts },
+    theme: { fonts, colors },
     handleFontChange,
     resetTheme,
   } = useThemeContext();
@@ -45,11 +45,17 @@ export default function ThemeFontPicker({}: Props) {
                     className={cn(
                       "flex flex-1 flex-col rounded-md border-2 p-2",
                       {
-                        "bg-indigo-900 text-white":
+                        "text-white":
                           (fontFamily as ThemeFontFamilies) ===
                           activeFontFamily,
                       },
                     )}
+                    style={{
+                      backgroundColor:
+                        (fontFamily as ThemeFontFamilies) === activeFontFamily
+                          ? colors["header-bg"]
+                          : undefined,
+                    }}
                     onClick={() =>
                       handleFontChange(
                         property as ThemeFontsProperties,

@@ -12,22 +12,22 @@ type LayoutButton = {
 const layoutButtons: LayoutButton[] = [
   {
     name: "top",
-    spanStyles: "after:left-0 after:top-0 after:h-1/2 after:w-full",
+    spanStyles: "left-0 top-0 h-1/2 w-full",
   },
   {
     name: "left",
-    spanStyles: "after:left-0 after:top-0 after:h-full after:w-1/2",
+    spanStyles: "left-0 top-0 h-full w-1/2",
   },
   {
     name: "right",
-    spanStyles: "after:right-0 after:top-0 after:h-full after:w-1/2",
+    spanStyles: "right-0 top-0 h-full w-1/2",
   },
 ];
 
 type Props = {};
 export default function ThemeLayoutPicker({}: Props) {
   const {
-    theme: { layout },
+    theme: { layout, colors },
     handleLayoutChange,
     resetTheme,
   } = useThemeContext();
@@ -47,11 +47,16 @@ export default function ThemeLayoutPicker({}: Props) {
             onClick={() => handleLayoutChange(name)}
           >
             <span
-              className={cn(
-                spanStyles,
-                "relative block h-16 w-16 rounded-md border border-indigo-900 after:absolute after:bg-indigo-900",
-              )}
-            ></span>
+              className="relative block h-16 w-16 rounded-md border"
+              style={{
+                borderColor: colors["header-bg"],
+              }}
+            >
+              <span
+                className={cn("absolute", spanStyles)}
+                style={{ backgroundColor: colors["header-bg"] }}
+              />
+            </span>
             {name.toUpperCase()[0] + name.slice(1)}
           </button>
         ))}
