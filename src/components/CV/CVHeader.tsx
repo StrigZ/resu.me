@@ -21,17 +21,23 @@ export default function CVHeader({}: Props) {
     >
       <h1 className="text-center text-4xl">{fullName}</h1>
       <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-6 text-lg">
-        <li className="flex items-center gap-2">
-          <IoMdMail /> {email}
-        </li>
-        <li className="flex items-center gap-2">
-          <FaPhoneAlt />
-          {phone}
-        </li>
-        <li className="flex items-center justify-center gap-2 text-center md:w-full">
-          <IoLocationSharp />
-          {location}
-        </li>
+        {email && (
+          <li className="flex items-center gap-2">
+            <IoMdMail /> {email}
+          </li>
+        )}
+        {phone && (
+          <li className="flex items-center gap-2">
+            <FaPhoneAlt />
+            {phone}
+          </li>
+        )}
+        {location && (
+          <li className="flex items-center justify-center gap-2 text-center md:w-full">
+            <IoLocationSharp />
+            {location}
+          </li>
+        )}
       </ul>
     </header>
   );
