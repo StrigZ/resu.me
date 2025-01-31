@@ -54,7 +54,7 @@ export const defaultCvData: CV = {
 export const defaultTheme: Theme = {
   layout: "top",
   colors: {
-    "header-bg": "#312e81",
+    "header-bg": "#EB5E55",
     "header-text": "#fff",
     "body-bg": "#fff",
     "body-text": "#000",
