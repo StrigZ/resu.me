@@ -12,7 +12,10 @@ export default function App() {
   const handlePDFDownload = async () => {
     if (typeof window === "undefined") return;
 
+    /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
+    // @ts-expect-error: html2pdf package doesn't have typescript support at the moment.
     const html2pdf = (await import("html2pdf.js")).default;
+    /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
 
     setIsPdfLoading(true);
 
