@@ -37,7 +37,7 @@ export default function Card({
             <GoChevronDown
               style={{
                 transition: "0.3s ease transform",
-                transform: isCollapsed ? "rotateZ(180deg)" : "",
+                transform: isCollapsed ? "" : "rotateZ(180deg)",
               }}
             />
           )}
