@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-// @ts-expect-error
+// @ts-expect-error: html2pdf package doesn't have typescript support at the moment.
+
 import html2pdf from "html2pdf.js";
 
 import CV from "~/components/CV/CV";
