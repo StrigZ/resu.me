@@ -6,8 +6,7 @@ import { RiResetLeftFill } from "react-icons/ri";
 const BUTTON_STYLES =
   "flex-1 justify-center rounded-md p-1.5 font-semibold transition-colors active:scale-95";
 
-type Props = {};
-export default function ThemeActionButtons({}: Props) {
+export default function ThemeActionButtons() {
   const { resetTheme } = useThemeContext();
 
   return (

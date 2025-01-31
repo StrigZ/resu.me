@@ -1,12 +1,11 @@
 "use client";
 
 import PersonalDetailsCard from "./PersonalDetails";
-import { CardName } from "../Sidebar";
+import { type CardName } from "../Sidebar";
 import { useState } from "react";
 import QualificationCard from "./QualificationCard";
 
-type Props = {};
-export default function CVContentEditor({}: Props) {
+export default function CVContentEditor() {
   const [visibleCardName, setVisibleCardName] = useState<CardName>(null);
   const handleCardCollapse = (cardName: CardName) =>
     setVisibleCardName((prev) => (prev === cardName ? null : cardName));

@@ -1,6 +1,6 @@
 import { useCVContext } from "~/context/CVContextProvider";
 import QualificationFormInputs from "./QualificationFormInputs";
-import { Qualification, QualificationType } from "~/types";
+import { type Qualification } from "~/types";
 
 type Props = {
   onBack: () => void;

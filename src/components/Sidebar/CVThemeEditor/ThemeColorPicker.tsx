@@ -1,5 +1,5 @@
 import Card from "~/components/Card";
-import { ThemeColorsProperties } from "~/types";
+import { type ThemeColorsProperties } from "~/types";
 import { useThemeContext } from "~/context/ThemeContextProvider";
 import ThemeResetButton from "./ThemeResetButton";
 
@@ -11,8 +11,7 @@ const PropertyDisplayText: Record<ThemeColorsProperties, string> = {
   "separators-bg": "Separators Background",
 };
 
-type Props = {};
-export default function ThemeColorPicker({}: Props) {
+export default function ThemeColorPicker() {
   const {
     theme: { colors },
     handleColorChange,
@@ -37,7 +36,7 @@ export default function ThemeColorPicker({}: Props) {
               {displayText}
               <span
                 className="block h-10 w-10 shrink-0 rounded-full border-2 border-gray-400 shadow-lg"
-                style={{ backgroundColor: color as string }}
+                style={{ backgroundColor: color }}
               />
             </label>
             <input

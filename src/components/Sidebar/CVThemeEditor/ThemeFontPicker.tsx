@@ -1,6 +1,6 @@
 import Card from "~/components/Card";
 
-import { ThemeFontFamilies, ThemeFontsProperties } from "~/types";
+import { type ThemeFontFamilies, type ThemeFontsProperties } from "~/types";
 import {
   ThemeFontFamiliesArray,
   useThemeContext,
@@ -14,8 +14,7 @@ const FontFamilyDisplayText: Record<ThemeFontFamilies, string> = {
   serif: "serif",
 };
 
-type Props = {};
-export default function ThemeFontPicker({}: Props) {
+export default function ThemeFontPicker() {
   const {
     theme: { fonts, colors },
     handleFontChange,
@@ -45,14 +44,12 @@ export default function ThemeFontPicker({}: Props) {
                     className={cn(
                       "flex flex-1 flex-col rounded-md border-2 p-2",
                       {
-                        "text-white":
-                          (fontFamily as ThemeFontFamilies) ===
-                          activeFontFamily,
+                        "text-white": fontFamily === activeFontFamily,
                       },
                     )}
                     style={{
                       backgroundColor:
-                        (fontFamily as ThemeFontFamilies) === activeFontFamily
+                        fontFamily === activeFontFamily
                           ? colors["header-bg"]
                           : undefined,
                     }}
@@ -69,7 +66,7 @@ export default function ThemeFontPicker({}: Props) {
                     >
                       Aa
                     </span>
-                    {FontFamilyDisplayText[fontFamily as ThemeFontFamilies]}
+                    {FontFamilyDisplayText[fontFamily]}
                   </button>
                 ))}
               </div>

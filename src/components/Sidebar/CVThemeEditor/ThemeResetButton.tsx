@@ -1,5 +1,5 @@
 import { RiResetLeftFill } from "react-icons/ri";
-import { Theme } from "~/types";
+import type { Theme } from "~/types";
 
 type Props = {
   handleThemeReset: (type: keyof Theme | "all") => void;

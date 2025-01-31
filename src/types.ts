@@ -1,4 +1,4 @@
-import { ThemeFontFamiliesArray } from "./context/ThemeContextProvider";
+import type { ThemeFontFamiliesArray } from "./context/ThemeContextProvider";
 
 export type Theme = {
   layout: ThemeLayout;

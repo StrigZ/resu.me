@@ -6,8 +6,7 @@ import Card from "~/components/Card";
 const BUTTON_STYLES =
   "flex-1 justify-center rounded-md p-1.5 font-semibold transition-colors active:scale-95";
 
-type Props = {};
-export default function CVActionButtons({}: Props) {
+export default function CVActionButtons() {
   const { clearCV, loadDefaults } = useCVContext();
 
   return (

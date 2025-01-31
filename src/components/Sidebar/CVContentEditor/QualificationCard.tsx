@@ -3,11 +3,11 @@
 import { GiGraduateCap } from "react-icons/gi";
 import Card from "../../Card";
 import { useCVContext } from "~/context/CVContextProvider";
-import { ReactNode, useState } from "react";
+import { type ReactNode, useState } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import QualificationItemsList from "./QualificationItemsList";
 import QualificationForm from "./QualificationForm";
-import { QualificationType } from "~/types";
+import { type QualificationType } from "~/types";
 import { FaBriefcase } from "react-icons/fa";
 
 const icons: Record<QualificationType, ReactNode> = {

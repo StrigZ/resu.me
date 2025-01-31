@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, ReactNode, useContext, useState } from "react";
-import { CV, Qualification } from "../types";
+import { createContext, type ReactNode, useContext, useState } from "react";
+import type { CV, Qualification } from "../types";
 import { defaultCvData } from "~/utils/defaultValues";
 
 type CVContext = {
@@ -19,12 +19,24 @@ type CVContext = {
 
 const CVContext = createContext<CVContext>({
   cvData: defaultCvData,
-  handleCVChange(property, value) {},
-  addQualification(newQualification) {},
-  deleteQualification(QualificationId) {},
-  editQualification(id, editedQualification) {},
-  clearCV() {},
-  loadDefaults() {},
+  handleCVChange() {
+    // do nothing;
+  },
+  addQualification() {
+    // do nothing;
+  },
+  deleteQualification() {
+    // do nothing;
+  },
+  editQualification() {
+    // do nothing;
+  },
+  clearCV() {
+    // do nothing;
+  },
+  loadDefaults() {
+    // do nothing;
+  },
 });
 export const useCVContext = () => useContext(CVContext);
 

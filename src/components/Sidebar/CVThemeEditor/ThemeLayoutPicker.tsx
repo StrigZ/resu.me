@@ -1,6 +1,6 @@
 import { cn } from "~/utils/utils";
 import Card from "../../Card";
-import { ThemeLayout } from "~/types";
+import type { ThemeLayout } from "~/types";
 import { useThemeContext } from "~/context/ThemeContextProvider";
 import ThemeResetButton from "./ThemeResetButton";
 
@@ -24,8 +24,7 @@ const layoutButtons: LayoutButton[] = [
   },
 ];
 
-type Props = {};
-export default function ThemeLayoutPicker({}: Props) {
+export default function ThemeLayoutPicker() {
   const {
     theme: { layout, colors },
     handleLayoutChange,

@@ -6,7 +6,7 @@ import {
   useThemeContext,
 } from "~/context/ThemeContextProvider";
 import { cn } from "~/utils/utils";
-import { MutableRefObject } from "react";
+import { type MutableRefObject } from "react";
 
 type Props = { mainRef: MutableRefObject<null> };
 export default function CV({ mainRef }: Props) {

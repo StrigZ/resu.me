@@ -5,8 +5,7 @@ import { useCVContext } from "../../context/CVContextProvider";
 import { useThemeContext } from "~/context/ThemeContextProvider";
 import { cn } from "~/utils/utils";
 
-type Props = {};
-export default function CVHeader({}: Props) {
+export default function CVHeader() {
   const {
     theme: { colors, fonts, layout },
   } = useThemeContext();
@@ -21,12 +20,12 @@ export default function CVHeader({}: Props) {
       style={{
         backgroundColor: colors["header-bg"],
         color: colors["header-text"],
-        fontFamily: fonts["text"],
+        fontFamily: fonts.text,
       }}
     >
       <h1
         className="text-center text-3xl"
-        style={{ fontFamily: fonts["headings"] }}
+        style={{ fontFamily: fonts.headings }}
       >
         {fullName}
       </h1>

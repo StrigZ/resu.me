@@ -2,7 +2,7 @@ import Card from "../Card";
 import { cn } from "~/utils/utils";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { FaPaintbrush } from "react-icons/fa6";
-import { EditorTabsType } from "./Sidebar";
+import type { EditorTabsType } from "./Sidebar";
 
 const BUTTON_STYLES =
   "flex flex-col items-center gap-1 flex-1 text-lg justify-center rounded-md p-1.5 font-semibold transition-colors active:scale-95";

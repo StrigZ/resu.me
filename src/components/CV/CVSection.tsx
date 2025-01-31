@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 import { useThemeContext } from "~/context/ThemeContextProvider";
-import { Qualification } from "~/types";
+import { type Qualification } from "~/types";
 
 type Props = {
   title: string;
@@ -12,12 +12,12 @@ export default function CVSection({ title, fields }: Props) {
   } = useThemeContext();
 
   return (
-    <section className="space-y-4" style={{ fontFamily: fonts["text"] }}>
+    <section className="space-y-4" style={{ fontFamily: fonts.text }}>
       <h2
         className="py-1 text-center text-2xl font-extrabold"
         style={{
           backgroundColor: colors["separators-bg"],
-          fontFamily: fonts["headings"],
+          fontFamily: fonts.headings,
         }}
       >
         {title}
@@ -38,7 +38,7 @@ export default function CVSection({ title, fields }: Props) {
               className="flex items-start justify-center gap-8 text-xl"
             >
               <div className="flex-1">
-                {(startDate || endDate) && (
+                {(startDate ?? endDate) && (
                   <p>
                     {startDate && <span>{format(startDate, "LL/u")}</span>} –{" "}
                     {endDate !== undefined && (

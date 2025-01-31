@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import { GoChevronDown } from "react-icons/go";
 import { cn } from "~/utils/utils";
 

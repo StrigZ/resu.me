@@ -1,7 +1,7 @@
 import { FaTrashCan } from "react-icons/fa6";
 import { MdModeEdit } from "react-icons/md";
 import { useCVContext } from "~/context/CVContextProvider";
-import { Qualification } from "~/types";
+import { type Qualification } from "~/types";
 
 type Props = {
   items: Qualification[];
@@ -14,7 +14,7 @@ export default function QualificationItemsList({ items, handleEdit }: Props) {
     items.length > 0 && (
       <ul>
         {items.map(({ id, name }) => (
-          <li className="flex gap-2 p-4 pl-6 text-lg">
+          <li key={id} className="flex gap-2 p-4 pl-6 text-lg">
             <p className="flex-1 font-medium">{name}</p>
             <button
               className="relative shrink-0 after:invisible after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:translate-y-1/2 after:bg-black hover:after:visible active:scale-95"

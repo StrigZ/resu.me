@@ -1,6 +1,6 @@
 import Input from "~/components/Input";
 import { format } from "date-fns";
-import { Qualification, QualificationType } from "~/types";
+import { type Qualification, type QualificationType } from "~/types";
 import { useCVContext } from "~/context/CVContextProvider";
 
 const inputPlaceholders: Record<

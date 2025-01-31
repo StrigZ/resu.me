@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, ReactNode, useContext, useState } from "react";
-import {
+import { createContext, type ReactNode, useContext, useState } from "react";
+import type {
   Theme,
   ThemeColorsProperties,
   ThemeFontFamilies,
@@ -36,10 +36,18 @@ type ThemeContext = {
 
 const ThemeContext = createContext<ThemeContext>({
   theme: defaultTheme,
-  handleFontChange() {},
-  handleColorChange() {},
-  handleLayoutChange() {},
-  resetTheme(type) {},
+  handleFontChange() {
+    // do nothing
+  },
+  handleColorChange() {
+    // do nothing
+  },
+  handleLayoutChange() {
+    // do nothing
+  },
+  resetTheme() {
+    // do nothing
+  },
 });
 
 export const useThemeContext = () => useContext(ThemeContext);
