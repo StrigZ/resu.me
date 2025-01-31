@@ -5,9 +5,10 @@ export type Theme = {
   colors: ThemeColors;
   fonts: ThemeFonts;
 };
-
-export type EducationOrExperience = {
+export type QualificationType = "education" | "experience";
+export type Qualification = {
   id: string;
+  type: QualificationType;
   location?: string;
   startDate?: Date;
   endDate?: Date | null;
@@ -21,8 +22,7 @@ export type CV = {
   email?: string;
   phone?: string;
   location?: string;
-  education: EducationOrExperience[];
-  experience: EducationOrExperience[];
+  qualifications: Qualification[];
 };
 
 export type ThemeColorsProperties =

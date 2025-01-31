@@ -1,9 +1,9 @@
 import { format } from "date-fns";
-import { EducationOrExperience } from "~/types";
+import { Qualification } from "~/types";
 
 type Props = {
   title: string;
-  fields: EducationOrExperience[];
+  fields: Qualification[];
 };
 export default function CVSection({ title, fields }: Props) {
   return (

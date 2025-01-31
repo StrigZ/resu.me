@@ -1,35 +1,26 @@
 "use client";
 
 import { createContext, ReactNode, useContext, useState } from "react";
-import { CV, EducationOrExperience } from "../types";
+import { CV, Qualification } from "../types";
 import { defaultCvData } from "~/utils/defaultValues";
 
 type CVContext = {
   cvData: CV;
   handleCVChange: <T extends keyof CV>(property: T, value: CV[T]) => void;
-  addEducation: (
-    newEducation: Pick<EducationOrExperience, "id"> &
-      Partial<Omit<EducationOrExperience, "id">>,
+  addQualification: (
+    newQualification: Pick<Qualification, "id" | "type"> &
+      Partial<Omit<Qualification, "id">>,
   ) => void;
-  addExperience: (
-    newExperience: Pick<EducationOrExperience, "id"> &
-      Partial<Omit<EducationOrExperience, "id">>,
-  ) => void;
-  editEducation: (id: string, editedEducation: EducationOrExperience) => void;
-  editExperience: (id: string, editedEducation: EducationOrExperience) => void;
-  deleteEducation: (educationId: string) => void;
-  deleteExperience: (experienceId: string) => void;
+  editQualification: (id: string, editedQualification: Qualification) => void;
+  deleteQualification: (QualificationId: string) => void;
 };
 
 const CVContext = createContext<CVContext>({
   cvData: defaultCvData,
   handleCVChange(property, value) {},
-  addEducation(newEducation) {},
-  addExperience(newExperience) {},
-  editEducation(id, editedEducation) {},
-  editExperience(id, editedEducation) {},
-  deleteEducation(educationId) {},
-  deleteExperience(experienceId) {},
+  addQualification(newQualification) {},
+  deleteQualification(QualificationId) {},
+  editQualification(id, editedQualification) {},
 });
 export const useCVContext = () => useContext(CVContext);
 
@@ -43,67 +34,44 @@ export default function CVContextProvider({
   const handleCVChange = <T extends keyof CV>(property: T, value: CV[T]) =>
     setCvData((prev) => ({ ...prev, [property]: value }));
 
-  const addEducation: CVContext["addEducation"] = (newEducation) =>
+  const addQualification: CVContext["addQualification"] = (newQualification) =>
     setCvData((prev) => ({
       ...prev,
-      education: [...prev.education, newEducation],
+      qualifications: [...prev.qualifications, newQualification],
     }));
 
-  const addExperience: CVContext["addExperience"] = (newExperience) =>
-    setCvData((prev) => ({
-      ...prev,
-      experience: [...prev.experience, newExperience],
-    }));
-
-  const editEducation: CVContext["editEducation"] = (id, editedEducation) =>
+  const editQualification: CVContext["editQualification"] = (
+    id,
+    editedQualification,
+  ) =>
     setCvData((prev) => {
-      const editedEducations = [...prev.education].map((education) =>
-        education.id === id ? editedEducation : education,
+      const editedQualifications = [...prev.qualifications].map(
+        (qualification) =>
+          qualification.id === id ? editedQualification : qualification,
       );
 
       return {
         ...prev,
-        education: editedEducations,
+        qualifications: editedQualifications,
       };
     });
 
-  const editExperience: CVContext["editExperience"] = (id, editedExperience) =>
+  const deleteQualification: CVContext["deleteQualification"] = (
+    qualificationId,
+  ) =>
     setCvData((prev) => {
-      const editedExperiences = [...prev.education].map((experience) =>
-        experience.id === id ? editedExperience : experience,
-      );
-
-      return {
-        ...prev,
-        education: editedExperiences,
-      };
-    });
-
-  const deleteEducation: CVContext["deleteEducation"] = (educationId) =>
-    setCvData((prev) => {
-      const education = [
-        ...prev.education.filter(({ id }) => id !== educationId),
+      const qualifications = [
+        ...prev.qualifications.filter(({ id }) => id !== qualificationId),
       ];
-      return { ...prev, education };
-    });
-
-  const deleteExperience: CVContext["deleteExperience"] = (experienceId) =>
-    setCvData((prev) => {
-      const experience = [
-        ...prev.education.filter(({ id }) => id !== experienceId),
-      ];
-      return { ...prev, experience };
+      return { ...prev, qualifications };
     });
 
   const value: CVContext = {
     cvData: cvData,
     handleCVChange,
-    addEducation,
-    addExperience,
-    editEducation,
-    editExperience,
-    deleteEducation,
-    deleteExperience,
+    addQualification,
+    editQualification,
+    deleteQualification,
   };
 
   return <CVContext.Provider value={value}>{children}</CVContext.Provider>;

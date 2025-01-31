@@ -5,8 +5,11 @@ import { useCVContext } from "../../context/CVContextProvider";
 type Props = {};
 export default function CV({}: Props) {
   const {
-    cvData: { education, experience },
+    cvData: { qualifications },
   } = useCVContext();
+
+  const education = qualifications.filter((q) => q.type === "education");
+  const experience = qualifications.filter((q) => q.type === "experience");
 
   return (
     <main className="col-span-2 h-fit bg-white shadow-md">

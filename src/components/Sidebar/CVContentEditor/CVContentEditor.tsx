@@ -1,10 +1,9 @@
 "use client";
 
-import EducationCard from "./EducationCard";
 import PersonalDetailsCard from "./PersonalDetails";
-import ExperienceCard from "./ExperienceCard";
 import { CardName } from "../Sidebar";
 import { useState } from "react";
+import QualificationCard from "./QualificationCard";
 
 type Props = {};
 export default function CVContentEditor({}: Props) {
@@ -15,11 +14,13 @@ export default function CVContentEditor({}: Props) {
   return (
     <>
       <PersonalDetailsCard />
-      <EducationCard
+      <QualificationCard
+        type="education"
         isCollapsed={visibleCardName !== "education"}
         onCollapse={() => handleCardCollapse("education")}
       />
-      <ExperienceCard
+      <QualificationCard
+        type="experience"
         isCollapsed={visibleCardName !== "experience"}
         onCollapse={() => handleCardCollapse("experience")}
       />

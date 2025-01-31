@@ -1,14 +1,14 @@
 import { FaTrashCan } from "react-icons/fa6";
 import { MdModeEdit } from "react-icons/md";
 import { useCVContext } from "~/context/CVContextProvider";
-import { EducationOrExperience } from "~/types";
+import { Qualification } from "~/types";
 
 type Props = {
-  items: EducationOrExperience[];
+  items: Qualification[];
   handleEdit: (id: string) => void;
 };
 export default function QualificationItemsList({ items, handleEdit }: Props) {
-  const { deleteEducation } = useCVContext();
+  const { deleteQualification } = useCVContext();
 
   return (
     items.length > 0 && (
@@ -24,7 +24,7 @@ export default function QualificationItemsList({ items, handleEdit }: Props) {
             </button>
             <button
               className="shrink-0 text-red-500 hover:text-red-800 active:scale-95"
-              onClick={() => deleteEducation(id)}
+              onClick={() => deleteQualification(id)}
             >
               <FaTrashCan />
             </button>

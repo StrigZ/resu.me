@@ -5,9 +5,10 @@ export const defaultCvData: CV = {
   email: "josephine.meyers@mail.co.uk",
   location: "London, UK",
   phone: "+44 3245 5521 5521",
-  education: [
+  qualifications: [
     {
       id: crypto.randomUUID(),
+      type: "education",
       name: "London City University",
       degreeOrRole: "Bachelors in Economics",
       location: "New York City, US",
@@ -16,6 +17,7 @@ export const defaultCvData: CV = {
     },
     {
       id: crypto.randomUUID(),
+      type: "education",
       name: "London City University",
       degreeOrRole: "Bachelors in Economics",
       location: "New York City, US",
@@ -24,11 +26,9 @@ export const defaultCvData: CV = {
       description:
         "Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android",
     },
-  ],
-
-  experience: [
     {
       id: crypto.randomUUID(),
+      type: "experience",
       name: "Black Mesa Labs",
       degreeOrRole: "UX Research Assistant",
       location: "Berlin, Germany",
@@ -39,6 +39,7 @@ export const defaultCvData: CV = {
     },
     {
       id: crypto.randomUUID(),
+      type: "experience",
       name: "Black Mesa Labs",
       degreeOrRole: "UX Research Assistant",
       location: "Berlin, Germany",
