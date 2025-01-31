@@ -3,11 +3,12 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { useCVContext } from "../../context/CVContextProvider";
 import { useThemeContext } from "~/context/ThemeContextProvider";
+import { cn } from "~/utils/utils";
 
 type Props = {};
 export default function CVHeader({}: Props) {
   const {
-    theme: { colors, fonts },
+    theme: { colors, fonts, layout },
   } = useThemeContext();
 
   const {
@@ -16,7 +17,7 @@ export default function CVHeader({}: Props) {
 
   return (
     <header
-      className="space-y-4 p-8 text-white"
+      className="space-y-4 p-4 text-white"
       style={{
         backgroundColor: colors["header-bg"],
         color: colors["header-text"],
@@ -24,12 +25,17 @@ export default function CVHeader({}: Props) {
       }}
     >
       <h1
-        className="text-center text-4xl"
+        className="text-center text-3xl"
         style={{ fontFamily: fonts["headings"] }}
       >
         {fullName}
       </h1>
-      <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-6 text-lg">
+      <ul
+        className={cn(
+          "flex flex-wrap items-center justify-center gap-x-4 gap-y-6 text-lg",
+          { "justify-start": layout === "left" || layout === "right" },
+        )}
+      >
         {email && (
           <li className="flex items-center gap-2">
             <IoMdMail /> {email}
@@ -42,7 +48,15 @@ export default function CVHeader({}: Props) {
           </li>
         )}
         {location && (
-          <li className="flex items-center justify-center gap-2 text-center md:w-full">
+          <li
+            className={cn(
+              "flex items-center justify-center gap-2 text-center",
+              {
+                "w-auto": layout === "left" || layout === "right",
+                "md:w-full": layout === "top",
+              },
+            )}
+          >
             <IoLocationSharp />
             {location}
           </li>

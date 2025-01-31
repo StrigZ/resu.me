@@ -22,7 +22,7 @@ export default function CVSection({ title, fields }: Props) {
       >
         {title}
       </h2>
-      <ul className="flex flex-col gap-8">
+      <ul className="flex flex-col gap-8 px-4">
         {fields.map(
           ({
             id,

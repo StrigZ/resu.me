@@ -29,7 +29,7 @@ export default function CV({}: Props) {
     >
       <CVHeader />
       <div
-        className="space-y-8 p-12"
+        className="space-y-8 pb-4"
         style={{
           backgroundColor: colors["body-bg"],
           color: colors["body-text"],
