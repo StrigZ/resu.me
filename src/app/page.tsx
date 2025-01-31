@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-// @ts-ignore
+// @ts-expect-error
 import html2pdf from "html2pdf.js";
 
 import CV from "~/components/CV/CV";
