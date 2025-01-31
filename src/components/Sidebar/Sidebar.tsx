@@ -19,7 +19,7 @@ export default function Sidebar({}: Props) {
   return (
     <aside className="col-span-2 flex flex-col gap-4 md:col-span-1">
       <EditorTabs activeTab={activeTab} handleTabSwitch={handleTabSwitch} />
-      <CVActionButtons handleLoadExample={() => {}} handleRestCV={() => {}} />
+      <CVActionButtons />
       {activeTab === "content" && <CVContentEditor />}
       {activeTab === "customize" && <CVThemeEditor />}
     </aside>

@@ -13,6 +13,8 @@ type CVContext = {
   ) => void;
   editQualification: (id: string, editedQualification: Qualification) => void;
   deleteQualification: (QualificationId: string) => void;
+  clearCV: () => void;
+  loadDefaults: () => void;
 };
 
 const CVContext = createContext<CVContext>({
@@ -21,6 +23,8 @@ const CVContext = createContext<CVContext>({
   addQualification(newQualification) {},
   deleteQualification(QualificationId) {},
   editQualification(id, editedQualification) {},
+  clearCV() {},
+  loadDefaults() {},
 });
 export const useCVContext = () => useContext(CVContext);
 
@@ -66,12 +70,25 @@ export default function CVContextProvider({
       return { ...prev, qualifications };
     });
 
+  const clearCV: CVContext["clearCV"] = () =>
+    setCvData({
+      fullName: "",
+      email: "",
+      phone: "",
+      location: "",
+      qualifications: [],
+    });
+  const loadDefaults: CVContext["loadDefaults"] = () =>
+    setCvData(defaultCvData);
+
   const value: CVContext = {
-    cvData: cvData,
+    cvData,
     handleCVChange,
     addQualification,
     editQualification,
     deleteQualification,
+    clearCV,
+    loadDefaults,
   };
 
   return <CVContext.Provider value={value}>{children}</CVContext.Provider>;
