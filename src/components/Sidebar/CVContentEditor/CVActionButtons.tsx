@@ -1,7 +1,7 @@
 import { FaTrashCan } from "react-icons/fa6";
-import Card from "../Card";
 import { cn } from "~/utils/utils";
 import { useCVContext } from "~/context/CVContextProvider";
+import Card from "~/components/Card";
 
 const BUTTON_STYLES =
   "flex-1 justify-center rounded-md p-1.5 font-semibold transition-colors active:scale-95";
