@@ -6,9 +6,10 @@ import {
   useThemeContext,
 } from "~/context/ThemeContextProvider";
 import { cn } from "~/utils/utils";
+import { MutableRefObject } from "react";
 
-type Props = {};
-export default function CV({}: Props) {
+type Props = { mainRef: MutableRefObject<null> };
+export default function CV({ mainRef }: Props) {
   const {
     cvData: { qualifications },
   } = useCVContext();
@@ -26,6 +27,7 @@ export default function CV({}: Props) {
         "col-span-2 h-fit bg-white shadow-md",
         ThemeLayoutStyles[layout],
       )}
+      ref={mainRef}
     >
       <CVHeader />
       <div
